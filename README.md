@@ -87,28 +87,29 @@ export default class App extends Component {
 
 ```
 module.exports = {
-  entry: ['./src/index.js'],
-  output: {
-    path: __dirname,
-    publicPath: '/',
-    filename: 'bundle.js'
-  },
-  module: {
-    loaders: [{
-      exclude: /node_modules/,
-      loader: 'babel',
-      query: {
-        presets: ['react', 'es2015', 'stage-2']
-      }
-    }]
-  },
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
-  devServer: {
-    historyApiFallback: true,
-    contentBase: __dirname + '/public'
-  }
+    entry: ['./src/index.js'],
+    output: {
+        path: __dirname,
+        publicPath: '/public',
+        filename: 'bundle.js'
+    },
+    module: {
+        loaders: [{
+            exclude: /node_modules/,
+            loader: 'babel',
+            query: {
+                presets: ['react', 'es2015', 'stage-2']
+            }
+        }]
+    },
+    resolve: {
+        extensions: ['', '.js', '.jsx']
+    },
+    devServer: {
+        historyApiFallback: true,
+        port: 3000,
+        contentBase: __dirname + '/public'
+    }
 };
 
 ```
@@ -160,3 +161,22 @@ $ webpack-dev-server --inline
 //3. 부분 로딩  또는 전체 페이지 로딩
 $ webpack-dev-server  --inline --hot
 ```
+
+---
+
+### publicPath
++ path : 결과가 저장되는 위치
++ publicPath : 배포 딜드시 CSS, HTML 안의 URL들을 업데이트 (prefilx 처럼)
+```
+// Development: Both Server and the image are on localhost
+.image { 
+  background-image: url(‘./test.png’);
+ }
+
+// Production: Server is on Heroku but the image is on a CDN
+.image { 
+  background-image: url(‘https://someCDN/test.png’);
+ }
+
+```
+[FEDevelopers](https://github.com/FEDevelopers/tech.description/wiki/Webpack%EC%9D%98-%ED%98%BC%EB%9E%80%EC%8A%A4%EB%9F%B0-%EC%82%AC%ED%95%AD%EB%93%A4)
