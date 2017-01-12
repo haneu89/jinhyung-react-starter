@@ -89,8 +89,8 @@ export default class App extends Component {
 module.exports = {
     entry: ['./src/index.js'],
     output: {
-        path: __dirname,
-        publicPath: '/public',
+        path: __dirname + '/public',
+        publicPath: '/',
         filename: 'bundle.js'
     },
     module: {
@@ -106,12 +106,12 @@ module.exports = {
         extensions: ['', '.js', '.jsx']
     },
     devServer: {
+        inline: true,
         historyApiFallback: true,
         port: 3000,
         contentBase: __dirname + '/public'
     }
 };
-
 ```
 
 ---
