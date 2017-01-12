@@ -42,15 +42,13 @@ ReactApp
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <link rel="stylesheet" href="/stylesheets/normalize.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <meta charset="UTF-8">
 </head>
 <body>
-<div class="root"></div>
+<div id="root"></div>
 </body>
-<script src="/bundle.js"></script>
+<script src="/public/bundle.js"></script>
 </html>
 
 ```
@@ -61,10 +59,10 @@ ReactApp
 ```
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
-import './App.css';			// 사용법 참고
+import App from './components/app';
+// import './App.css';			// 사용법 참고
 
-const rootElement = document.getElementById('root');    
+const rootElement = document.getElementById('root');
 ReactDOM.render(<App />, rootElement);
 
 ```
@@ -76,11 +74,11 @@ ReactDOM.render(<App />, rootElement);
 import React, { Component } from 'react';
 
 export default class App extends Component {
-  render() {
-    return (
-      <div>React simple starter</div>
+    render() {
+        return (
+            <div>Hello React !!</div>
     );
-  }
+    }
 }
 ```
 
